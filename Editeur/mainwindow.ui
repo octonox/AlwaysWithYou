@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>419</width>
+    <height>308</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>341</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>419</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionAjouter_un_tileset"/>
+    <addaction name="actionAjouter_une_musique"/>
+    <addaction name="separator"/>
+    <addaction name="actionEnregistrer"/>
+    <addaction name="actionEnregistrer_sous"/>
+    <addaction name="separator"/>
+    <addaction name="actionEnregistrer_et_quitter"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuAffichage">
+    <property name="title">
+     <string>Affichage</string>
+    </property>
+    <addaction name="actionMenu"/>
+    <addaction name="actionDock"/>
+    <addaction name="actionCanvas"/>
+   </widget>
+   <widget class="QMenu" name="menuEdition">
+    <property name="title">
+     <string>Edition</string>
+    </property>
+    <addaction name="actionChanger_le_tile_actuel"/>
+    <addaction name="actionChanger_le_tileset_actuel"/>
+    <addaction name="actionChanger_la_musique_actuelle"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelectionner_un_tile"/>
+   </widget>
+   <widget class="QMenu" name="menuQuitter">
+    <property name="title">
+     <string>Quitter</string>
+    </property>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuAffichage"/>
+   <addaction name="menuEdition"/>
+   <addaction name="menuQuitter"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="m_properties">
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
+  </widget>
+  <action name="actionAjouter_un_tileset">
+   <property name="text">
+    <string>Ajouter un tileset</string>
+   </property>
+  </action>
+  <action name="actionAjouter_une_musique">
+   <property name="text">
+    <string>Ajouter une musique</string>
+   </property>
+  </action>
+  <action name="actionEnregistrer">
+   <property name="text">
+    <string>Enregistrer</string>
+   </property>
+  </action>
+  <action name="actionEnregistrer_sous">
+   <property name="text">
+    <string>Enregistrer sous</string>
+   </property>
+  </action>
+  <action name="actionEnregistrer_et_quitter">
+   <property name="text">
+    <string>Enregistrer et quitter</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionMenu">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Menu</string>
+   </property>
+  </action>
+  <action name="actionDock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Propriétés</string>
+   </property>
+  </action>
+  <action name="actionCanvas">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Canvas</string>
+   </property>
+  </action>
+  <action name="actionChanger_le_tile_actuel">
+   <property name="text">
+    <string>Changer le tile actuel</string>
+   </property>
+  </action>
+  <action name="actionChanger_le_tileset_actuel">
+   <property name="text">
+    <string>Changer le tileset actuel</string>
+   </property>
+  </action>
+  <action name="actionChanger_la_musique_actuelle">
+   <property name="text">
+    <string>Changer la musique actuelle</string>
+   </property>
+  </action>
+  <action name="actionSelectionner_un_tile">
+   <property name="text">
+    <string>Selectionner un tile</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
