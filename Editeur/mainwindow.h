@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include "sfmlcanvas.h"
 #include <QMainWindow>
+#include <QVBoxLayout>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QVBoxLayout* m_lcanvas;
     SfmlCanvas* m_canvas;
 };
 

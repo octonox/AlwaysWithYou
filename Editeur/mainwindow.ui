@@ -13,19 +13,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>0</y>
-      <width>341</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout"/>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -57,6 +45,8 @@
     <addaction name="actionChanger_la_musique_actuelle"/>
     <addaction name="separator"/>
     <addaction name="actionSelectionner_un_tile"/>
+    <addaction name="separator"/>
+    <addaction name="actionAjouter_une_collision"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuEdition"/>
@@ -160,6 +150,11 @@
   <action name="actionSelectionner_un_tile">
    <property name="text">
     <string>Selectionner un tile</string>
+   </property>
+  </action>
+  <action name="actionAjouter_une_collision">
+   <property name="text">
+    <string>Ajouter une collision</string>
    </property>
   </action>
  </widget>
