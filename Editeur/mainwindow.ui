@@ -48,14 +48,6 @@
     <addaction name="actionEnregistrer_et_quitter"/>
     <addaction name="actionQuitter"/>
    </widget>
-   <widget class="QMenu" name="menuAffichage">
-    <property name="title">
-     <string>Affichage</string>
-    </property>
-    <addaction name="actionMenu"/>
-    <addaction name="actionDock"/>
-    <addaction name="actionCanvas"/>
-   </widget>
    <widget class="QMenu" name="menuEdition">
     <property name="title">
      <string>Edition</string>
@@ -66,15 +58,8 @@
     <addaction name="separator"/>
     <addaction name="actionSelectionner_un_tile"/>
    </widget>
-   <widget class="QMenu" name="menuQuitter">
-    <property name="title">
-     <string>Quitter</string>
-    </property>
-   </widget>
    <addaction name="menuFichier"/>
-   <addaction name="menuAffichage"/>
    <addaction name="menuEdition"/>
-   <addaction name="menuQuitter"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
