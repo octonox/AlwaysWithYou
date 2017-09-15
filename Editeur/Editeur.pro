@@ -36,10 +36,15 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
-LIBS += -LC:/SFML-2.4.2_ForQt/lib
+win32:LIBS += -LC:/SFML-2.4.2_ForQt/lib
+unix:!macx:LIBS += -L~/SFML-2.4.2/lib
 
-CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-main -lsfml-network -lsfml-window -lsfml-system
-CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-main-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
+win32:CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-main -lsfml-network -lsfml-window -lsfml-system
+win32:CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-main-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
+unix:!macx:CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+unix:!macx:CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
 
-INCLUDEPATH += C:\SFML-2.4.2_ForQt\headers
-DEPENDPATH += C:\SFML-2.4.2_ForQt\headers
+win32:INCLUDEPATH += C:\SFML-2.4.2_ForQt\include
+win32:DEPENDPATH += C:\SFML-2.4.2_ForQt\include
+unix:!macx:INCLUDEPATH += ~/SFML-2.4.2/include
+unix:!macx:DEPENDPATH += ~/SFML-2.4.2/include

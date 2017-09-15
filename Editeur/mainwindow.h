@@ -3,6 +3,10 @@
 #include "sfmlcanvas.h"
 #include <QMainWindow>
 #include <QVBoxLayout>
+#include <map>
+#include <SFML/Audio.hpp>
+#include <QFileDialog>
+#include <QInputDialog>
 
 namespace Ui {
 class MainWindow;
@@ -16,10 +20,16 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+protected slots:
+    void addMusic(); //Add a music file to the list
+    void addTileset();
+
 private:
     Ui::MainWindow *ui;
     QVBoxLayout* m_lcanvas;
     SfmlCanvas* m_canvas;
+
+    std::map<std::string, sf::Music&> m_music; //Contain all musics used in the map
 };
 
 #endif // MAINWINDOW_H

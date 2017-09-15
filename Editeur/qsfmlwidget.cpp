@@ -33,7 +33,11 @@ void QSFMLWidget::showEvent(QShowEvent*)
         #endif
 
         // On crée la fenêtre SFML avec l'identificateur du widget
+#ifdef WIN32
         RenderWindow::create(reinterpret_cast<sf::WindowHandle>(winId()));
+#else
+        RenderWindow::create(winId());
+#endif
 
         // On laisse la classe dérivée s'initialiser si besoin
         OnInit();
