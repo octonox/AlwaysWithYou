@@ -27,15 +27,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     qsfmlwidget.cpp \
-    sfmlcanvas.cpp
+    sfmlcanvas.cpp \
+    musicdialog.cpp
 
 HEADERS += \
         mainwindow.h \
     qsfmlwidget.h \
-    sfmlcanvas.h
+    sfmlcanvas.h \
+    musicdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    musicdialog.ui
 win32:LIBS += -LC:/SFML-2.4.2_ForQt/lib
 unix:!macx:LIBS += -L~/SFML-2.4.2/lib
 
