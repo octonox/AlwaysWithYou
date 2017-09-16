@@ -30,12 +30,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::addMusic()
 {
-    bool ok {false};
+
     QString way = QFileDialog::getOpenFileName(this, "Choisir une musique", QString(), "Musiques (*.ogg *.wav)");
-    QString title { QInputDialog::getText(this, "Nom de la musique", "Comment s'appelle cette musique (à " + way + ")", QLineEdit::Normal, QString(), &ok) };
-    sf::Music new_m;
-    new_m.openFromFile(way.toStdString());
-   // m_music[title.toStdString()] = new_m;
+    if(way != "")
+    {
+        bool ok {false};
+        QString title { QInputDialog::getText(this, "Nom de la musique", "Comment s'appelle cette musique (à " + way + ")", QLineEdit::Normal, QString(), &ok) };
+        if(ok && title != "")
+            m_music[title.toStdString()].openFromFile(way.toStdString());
+    }
 }
 
 void MainWindow::addTileset()

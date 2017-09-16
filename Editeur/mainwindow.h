@@ -29,7 +29,7 @@ private:
     QVBoxLayout* m_lcanvas;
     SfmlCanvas* m_canvas;
 
-    std::map<std::string, sf::Music&> m_music; //Contain all musics used in the map
+    std::map<std::string, sf::Music> m_music; //Contain all musics used in the map
 };
 
 #endif // MAINWINDOW_H
