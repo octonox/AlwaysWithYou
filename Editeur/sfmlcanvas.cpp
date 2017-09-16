@@ -1,6 +1,6 @@
 #include "sfmlcanvas.h"
 
-SfmlCanvas::SfmlCanvas(QSize const& size, QPoint const& position, QWidget* parent) : QSFMLWidget(parent, size, position)
+SfmlCanvas::SfmlCanvas(QWidget* parent) : QSFMLWidget(parent)
 {
 }
 

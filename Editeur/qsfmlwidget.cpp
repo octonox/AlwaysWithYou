@@ -4,26 +4,22 @@
     #include <X11/Xlib.h>
 #endif
 
-QSFMLWidget::QSFMLWidget(QWidget *parent, QSize const& size, QPoint const& position, unsigned int frametime) : QWidget(parent), m_initialized(false)
+QSFMLWidget::QSFMLWidget(QWidget *parent) : QWidget(parent), m_initialized(false)
 {
     setAttribute(Qt::WA_PaintOnScreen);
     setAttribute(Qt::WA_OpaquePaintEvent);
     setAttribute(Qt::WA_NoSystemBackground);
 
     setFocusPolicy(Qt::StrongFocus);
-
-    resize(size);
-    move(position);
-
-    m_timer.setInterval(frametime);
 }
 
 QSFMLWidget::~QSFMLWidget()
 {
 }
 
-void QSFMLWidget::showEvent(QShowEvent*)
+void QSFMLWidget::showEvent(QShowEvent* event)
 {
+    Q_UNUSED(event)
     if (!m_initialized)
     {
         // Sous X11, il faut valider les commandes qui ont été envoyées au serveur
@@ -55,8 +51,9 @@ QPaintEngine* QSFMLWidget::paintEngine() const
     return 0;
 }
 
-void QSFMLWidget::paintEvent(QPaintEvent*)
+void QSFMLWidget::paintEvent(QPaintEvent* event)
 {
+    Q_UNUSED(event)
     // On laisse la classe dérivée faire sa tambouille
     OnUpdate();
 

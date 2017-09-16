@@ -1,5 +1,6 @@
 #ifndef QSFMLWIDGET_H
 #define QSFMLWIDGET_H
+#include <QObject>
 #include <QTimer>
 #include <QWidget>
 #include <SFML/Graphics.hpp>
@@ -8,7 +9,7 @@ class QSFMLWidget : public QWidget, public sf::RenderWindow
 {
     Q_OBJECT
 public:
-    explicit QSFMLWidget(QWidget *parent, QSize const& size, QPoint const& position, unsigned int frametime = 0);
+    explicit QSFMLWidget(QWidget *parent = nullptr);
     virtual ~QSFMLWidget();
 
 protected:
@@ -18,9 +19,9 @@ protected:
 
     virtual QPaintEngine* paintEngine() const;
 
-    virtual void showEvent(QShowEvent*);
+    virtual void showEvent(QShowEvent* event);
 
-    virtual void paintEvent(QPaintEvent*);
+    virtual void paintEvent(QPaintEvent* event);
 
     QTimer m_timer;
     bool m_initialized;

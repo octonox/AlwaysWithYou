@@ -5,7 +5,7 @@
 class SfmlCanvas : public QSFMLWidget
 {
 public:
-    explicit SfmlCanvas(QSize const& size, QPoint const& position, QWidget* parent = nullptr);
+    explicit SfmlCanvas(QWidget* parent = nullptr);
     ~SfmlCanvas();
 
 private:
