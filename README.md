@@ -9,3 +9,6 @@ Okay, so AlwaysWithYou will be a RPG. The player live in a world full of zombies
 This project use the Qt Framework and SFML-2.4.2 library. Basically he is compiled with the MinGW gived in the installer of Qt. I have compiled the SFML from sources with this compiler so now if you want to work on this project you have to do the same thing.
 
 This is the begining of the project!
+
+# Advancement
+Now the map editor is still in developpement...

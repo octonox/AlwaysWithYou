@@ -27,23 +27,23 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     qsfmlwidget.cpp \
-    sfmlcanvas.cpp
+    sfmlcanvas.cpp \
+    gamemap.cpp
 
 HEADERS += \
         mainwindow.h \
     qsfmlwidget.h \
-    sfmlcanvas.h
+    sfmlcanvas.h \
+    gamemap.h
 
 FORMS += \
-        mainwindow.ui \
-    musicdialog.ui
+        mainwindow.ui
 win32:LIBS += -LC:/SFML-2.4.2_ForQt/lib
 unix:!macx:LIBS += -L~/SFML-2.4.2/lib
 
 win32:CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-main -lsfml-network -lsfml-window -lsfml-system
 win32:CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-main-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
-unix:!macx:CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
-unix:!macx:CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
+unix:!macx: LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 win32:INCLUDEPATH += C:\SFML-2.4.2_ForQt\include
 win32:DEPENDPATH += C:\SFML-2.4.2_ForQt\include

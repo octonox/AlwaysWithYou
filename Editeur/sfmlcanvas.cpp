@@ -1,6 +1,6 @@
 #include "sfmlcanvas.h"
 
-SfmlCanvas::SfmlCanvas(QWidget* parent) : QSFMLWidget(parent)
+SfmlCanvas::SfmlCanvas(QWidget* parent) : QSFMLWidget(parent), map(this)
 {
 }
 
@@ -14,4 +14,5 @@ void SfmlCanvas::OnInit()
 
 void SfmlCanvas::OnUpdate()
 {
+    map.update();
 }

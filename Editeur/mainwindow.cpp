@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionQuitter, &QAction::triggered, this, &QMainWindow::close); //We use the Qt 5 syntax to connect signals and slots
     connect(ui->actionAjouter_une_musique, &QAction::triggered, this, &MainWindow::addMusic); //This connect the action "add a music" to a slots who do that
-    connect(ui->actionAjouter_un_tileset, &QAction::triggered, this, &MainWindow::addTileset); //This connect the action "add a tileser" to a slots who so that
+    connect(ui->actionAjouter_un_tileset, &QAction::triggered, this, &MainWindow::addTileset); //This connect the action "add a tileset" to a slots who do that
 }
 
 MainWindow::~MainWindow()
