@@ -48,8 +48,15 @@
     <addaction name="separator"/>
     <addaction name="actionAjouter_une_collision"/>
    </widget>
+   <widget class="QMenu" name="menuVoir">
+    <property name="title">
+     <string>Voir</string>
+    </property>
+    <addaction name="actionMusiques"/>
+   </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuEdition"/>
+   <addaction name="menuVoir"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -155,6 +162,11 @@
   <action name="actionAjouter_une_collision">
    <property name="text">
     <string>Ajouter une collision</string>
+   </property>
+  </action>
+  <action name="actionMusiques">
+   <property name="text">
+    <string>Musiques</string>
    </property>
   </action>
  </widget>
