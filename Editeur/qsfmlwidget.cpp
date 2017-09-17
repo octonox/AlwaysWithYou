@@ -54,6 +54,7 @@ QPaintEngine* QSFMLWidget::paintEngine() const
 void QSFMLWidget::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event)
+    RenderWindow::clear();
     // On laisse la classe dérivée faire sa tambouille
     OnUpdate();
 

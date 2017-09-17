@@ -14,5 +14,4 @@ void SfmlCanvas::OnInit()
 
 void SfmlCanvas::OnUpdate()
 {
-    clear();
 }

@@ -27,14 +27,12 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     qsfmlwidget.cpp \
-    sfmlcanvas.cpp \
-    musicdialog.cpp
+    sfmlcanvas.cpp
 
 HEADERS += \
         mainwindow.h \
     qsfmlwidget.h \
-    sfmlcanvas.h \
-    musicdialog.h
+    sfmlcanvas.h
 
 FORMS += \
         mainwindow.ui \
