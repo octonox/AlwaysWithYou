@@ -9,6 +9,7 @@ namespace game{
         {
             for(int j {0};j < NUMBERTILEX;++j)
             {
+                m_tiles[i][j].setSize(sf::Vector2f((float)SIZEOFTILE, (float)SIZEOFTILE));
                 m_tiles[i][j].setFillColor(sf::Color::White); //All tiles are white defaultly
                 m_tiles[i][j].setPosition(j * SIZEOFTILE, i * SIZEOFTILE);
             }

@@ -1,8 +1,8 @@
 #ifndef GAMEMAP_H
 #define GAMEMAP_H
 #define SIZEOFTILE 10
-#define NUMBERTILEX 5
-#define NUMBERTILEY 5
+#define NUMBERTILEX 80
+#define NUMBERTILEY 80
 #include <array>
 #include <SFML/Graphics.hpp>
 
