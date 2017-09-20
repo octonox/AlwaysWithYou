@@ -21,7 +21,7 @@ void SfmlCanvas::OnUpdate()
         {
             if(event.mouseButton.button == sf::Mouse::Left)
             {
-                map.addTileTexture(sf::Texture(), 0, event.mouseButton.x, event.mouseButton.y);
+                map.addTileTexture(m_textCurrent, 0, event.mouseButton.x, event.mouseButton.y);
             }
         }
     }

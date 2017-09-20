@@ -40,7 +40,7 @@ void MainWindow::addMusic()
         bool ok {false};
         QString title { QInputDialog::getText(this, "Nom de la musique", "Comment s'appelle cette musique (à " + way + ")", QLineEdit::Normal, QString(), &ok) }; //We get the title of the music (after it will be easier to see the musics)
         if(ok && title != "") //We verif the user touch the OK button and the title isn't empty
-            m_music[title.toStdString()] = way.toStdString(); //And we add the file to the std::map
+            m_canvas->addMusic(title.toStdString(), way.toStdString());
     }
 }
 
@@ -53,6 +53,6 @@ void MainWindow::addTileset()
         bool ok {false};
         QString title { QInputDialog::getText(this, "Nom du tileset", "Comment s'appelle ce tileset (à " + way + ")", QLineEdit::Normal, QString(), &ok) };
         if(ok && title != "")
-            m_tilesets[title.toStdString()] = way.toStdString();
+            m_canvas->addTileset(title.toStdString(), way.toStdString());
     }
 }

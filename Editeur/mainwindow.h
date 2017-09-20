@@ -30,9 +30,6 @@ private:
     Ui::MainWindow *ui;
     QVBoxLayout* m_lcanvas;
     SfmlCanvas* m_canvas;
-
-    std::map<std::string, std::string> m_music; //Contain all musics used in the map
-    std::map<std::string, std::string> m_tilesets; //Contain all musics used in the map
 };
 
 #endif // MAINWINDOW_H
