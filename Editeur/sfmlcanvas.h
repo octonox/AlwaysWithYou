@@ -9,10 +9,10 @@ public:
     explicit SfmlCanvas(QWidget* parent = nullptr);
     ~SfmlCanvas();
 
-    void addMusic(std::string& title, std::string& way);
-    void addTileset(std::string& title, std::string& way);
+    void addMusic(std::string const& title, std::string const& way);
+    void addTileset(std::string const& title, std::string const& way);
 
-    void setCurrentTexture(sf::Texture const& newText);
+    void setCurrentTexture(sf::Texture& newText);
 
 private:
     void OnInit() override;

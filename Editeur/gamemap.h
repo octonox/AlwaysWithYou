@@ -16,7 +16,7 @@ namespace game{
         ~Map();
 
         void update(); //This draw all tiles of the map
-        void addTileTexture(sf::Texture const& tileset, unsigned int number_of_tile_in_tileset, float posX, float posY);
+        void addTileTexture(sf::Texture const* tileset, unsigned int number_of_tile_in_tileset, int posX, int posY);
         /*addTileTexture:
           tileset-> This is the tileset
           number_of_tile_in_tileset-> This is the position in cm of the tile in the tileset

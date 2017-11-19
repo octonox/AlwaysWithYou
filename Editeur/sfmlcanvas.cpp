@@ -21,24 +21,24 @@ void SfmlCanvas::OnUpdate()
         {
             if(event.mouseButton.button == sf::Mouse::Left)
             {
-                map.addTileTexture(sf::Texture(), 0, event.mouseButton.x, event.mouseButton.y);
+                map.addTileTexture(m_textCurrent, 0, event.mouseButton.x, event.mouseButton.y);
             }
         }
     }
     map.update();
 }
 
-void SfmlCanvas::addMusic(std::string& title, std::string& way)
+void SfmlCanvas::addMusic(std::string const& title, std::string const& way)
 {
     m_music[title] = way;
 }
 
-void SfmlCanvas::addMusic(std::string& title, std::string& way)
+void SfmlCanvas::addTileset(std::string const& title, std::string const& way)
 {
     m_tilesets[title] = way;
 }
 
-void SfmlCanvas::setCurrentTexture(sf::Texture const& newText)
+void SfmlCanvas::setCurrentTexture(sf::Texture& newText)
 {
-    m_textCurrent = newText;
+    m_textCurrent = &newText;
 }

@@ -31,13 +31,13 @@ namespace game{
         }
     }
 
-    void Map::addTileTexture(sf::Texture const& tileset, unsigned int number_of_tile_in_tileset, float posX, float posY)
+    void Map::addTileTexture(sf::Texture const* tileset, unsigned int number_of_tile_in_tileset, int posX, int posY)
     {
         //We determine what tile is clicked and plug a texture on
         int tileX, tileY;
         tileX = posX / SIZEOFTILE;
         tileY = posY / SIZEOFTILE;
-        m_tiles[tileX][tileY].setTexture(&tileset);
+        m_tiles[tileX][tileY].setTexture(tileset);
         m_tiles[tileX][tileY].setTextureRect(sf::IntRect(number_of_tile_in_tileset * SIZEOFTILE, 0, SIZEOFTILE, SIZEOFTILE)); //Here we choose the tile in the tileset
     }
 }
