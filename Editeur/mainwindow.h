@@ -5,10 +5,9 @@
 #include <SFML/Audio.hpp>
 #include <QFileDialog>
 #include <QInputDialog>
+#include <QListWidget>
 #include <map>
 #include "sfmlcanvas.h"
-
-class MusicDialog;
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +24,7 @@ public:
 protected slots:
     void addMusic(); //Add a music file to the list
     void addTileset(); //Add a tileset file to the list
+    void setCurrentTileset(); //Set the current tileset selected
 
 private:
     Ui::MainWindow *ui;

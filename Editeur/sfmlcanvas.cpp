@@ -42,3 +42,8 @@ void SfmlCanvas::setCurrentTexture(sf::Texture& newText)
 {
     m_textCurrent = &newText;
 }
+
+std::map<std::string, std::string> SfmlCanvas::getTilesets()
+{
+    return m_tilesets;
+}

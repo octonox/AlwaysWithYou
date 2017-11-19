@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionQuitter, &QAction::triggered, this, &QMainWindow::close); //We use the Qt 5 syntax to connect signals and slots
     connect(ui->actionAjouter_une_musique, &QAction::triggered, this, &MainWindow::addMusic); //This connect the action "add a music" to a slots who do that
     connect(ui->actionAjouter_un_tileset, &QAction::triggered, this, &MainWindow::addTileset); //This connect the action "add a tileset" to a slots who do that
+    connect(ui->actionChanger_le_tileset_actuel, &QAction::triggered, this, &MainWindow::setCurrentTileset);
 }
 
 MainWindow::~MainWindow()
@@ -55,4 +57,26 @@ void MainWindow::addTileset()
         if(ok && title != "")
             m_canvas->addTileset(title.toStdString(), way.toStdString());
     }
+}
+
+void MainWindow::setCurrentTileset()
+{
+    auto tilesets { m_canvas->getTilesets() };
+
+    QDialog* dialog = new QDialog(this);
+    QVBoxLayout* layout = new QVBoxLayout;
+    QListWidget* listname = new QListWidget;
+    QLabel label("Liste des tilesets: ");
+
+    for(auto const& p: tilesets)
+        listname->addItem(QString(p.first.c_str()));
+
+    layout->addWidget(&label);
+    layout->addWidget(listname);
+    dialog->setLayout(layout);
+    dialog->exec();
+
+    delete listname;
+    delete layout;
+    delete dialog;
 }

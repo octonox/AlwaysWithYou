@@ -13,6 +13,7 @@ public:
     void addTileset(std::string const& title, std::string const& way);
 
     void setCurrentTexture(sf::Texture& newText);
+    std::map<std::string, std::string> getTilesets();
 
 private:
     void OnInit() override;
