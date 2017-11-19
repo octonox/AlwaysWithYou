@@ -1,0 +1,8 @@
+Fichier créant la classe QSFMLWidget
+Classe:
+	QSFMLWidget: Classe à dériver qui sert de patron pour faire un canvas
+		Méthodes:
+			voir qsfmlwidget_cpp.docu
+		Attributs:
+			m_timer -> timer pour le rafraichissement du canvas
+			m_initialized -> sert a garantir que le code de la méthode ShowEvent ne sera pas utilisé plusieurs fois	

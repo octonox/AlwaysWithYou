@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <title>Intégrer à une interface Qt (SFML / Apprendre / Tutoriels 1.6)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <link rel="icon" type="image/ico" href="https://www.sfml-dev.org/images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="qtinsfml_fichiers/css.css">
+        <link rel="stylesheet" type="text/css" href="qtinsfml_fichiers/style.css" title="default" media="screen,print">
+        <link rel="stylesheet" type="text/css" href="qtinsfml_fichiers/github.css">
+        <!--[if (gte IE 9)|!(IE)]>
+<!-->
+        <script type="text/javascript" defer="defer" async="" src="qtinsfml_fichiers/piwik.js"></script><script type="text/javascript" async="" src="qtinsfml_fichiers/ga.js"></script><script type="text/javascript" src="qtinsfml_fichiers/highlight.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+<!--<![endif]-->
+    </head>
+    <body id="top">
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1839559-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+        <div id="page">
+            <div id="banner-container">
+                <div id="banner">
+                    <a href="https://www.sfml-dev.org/index-fr.php"><img id="logo" src="qtinsfml_fichiers/logo.png" alt="SFML logo"></a>
+                    <ul id="menu">
+                        <li><a href="https://www.sfml-dev.org/learn-fr.php">Apprendre</a></li>
+                        <li><a href="https://www.sfml-dev.org/download-fr.php">Télécharger</a></li>
+                        <li><a href="https://www.sfml-dev.org/community-fr.php">Communauté</a></li>
+                        <li><a href="https://www.sfml-dev.org/development-fr.php">Développement</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="navigation-container">
+                <div id="navigation">
+                    <ul id="breadcrumbs">
+                    <li><a href="https://www.sfml-dev.org/index-fr.php">Accueil</a></li><li>»<a href="https://www.sfml-dev.org/learn-fr.php">Apprendre</a></li><li>»<a href="https://www.sfml-dev.org/tutorials/1.6/index-fr.php">Tutoriels 1.6</a></li><li>»<a href="https://www.sfml-dev.org/tutorials/1.6/graphics-qt-fr.php">Intégrer à une interface Qt</a></li>                    </ul>
+                    <ul id="buttons">
+                        <li><a id="language-en" href="https://www.sfml-dev.org/tutorials/1.6/graphics-qt.php" title="Website in english">English</a></li>
+                        <li><a id="donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VH4J3GW5GUXR4&amp;lc=FR" title="Faire un don">Faire un don</a></li>
+                        <li><a id="flattr" href="https://flattr.com/thing/38063/SFML-multimedia-library" title="Flattrer SFML">Flattr</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+<p style="text-align:center"><a class="important" href="https://www.sfml-dev.org/tutorials/2.4"><strong>Attention:</strong> cette page se réfère à une ancienne version de SFML. Cliquez ici pour passer à la dernière version.</a></p>
+
+<h1>Intégrer à une interface Qt</h1>
+
+<h2 id="introduction"><a class="h2-link" href="#introduction">Introduction</a><a class="back-to-top" href="#top" title="Haut de la page"></a></h2><p>
+    Dans ce tutoriel, nous allons voir comment intégrer une vue SFML à une interface Qt. La façon habituelle d'ajouter une
+    nouvelle fonctionnalité à une interface Qt est d'écrire un widget (composant) personnalisé ; c'est ce que nous allons
+    faire ici.
+</p>
+
+<h2 id="crceation-du-composant-sfml-personnalisce"><a class="h2-link" href="#crceation-du-composant-sfml-personnalisce">Création du composant SFML personnalisé</a><a class="back-to-top" href="#top" title="Haut de la page"></a></h2><p>
+    Afin de créer notre widget SFML perso, nous devons dériver de la classe de base <code>QWidget</code>. Et comme nous
+    voulons que notre widget soit également une fenêtre de rendu SFML, nous héritons également de
+    <a href="https://www.sfml-dev.org/documentation/1.6-fr/classsf_1_1RenderWindow.php" title="sf::RenderWindow documentation"><code>sf::RenderWindow</code></a>.
+</p>
+<pre><code class="cpp"><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span>
+<span class="preprocessor">#include &lt;Qt/qwidget.h&gt;</span>
+
+<span class="keyword">class</span> QSFMLCanvas : <span class="keyword">public</span> QWidget, <span class="keyword">public</span> sf::RenderWindow
+{
+    ...
+};
+</code></pre>
+<p>
+    Puis, de quoi cette classe aura besoin pour fonctionner ? Premièrement, d'un constructeur standard définissant
+    les proriétés usuelles des widgets : parent, position, taille. Nous ajoutons à cela un dernier paramètre, qui est
+    la durée d'une frame (l'inverse du taux de rafraîchissement) ; comme Qt ne fournit pas d'évènement <em>idle</em>
+    (qui serait généré à chaque fois que la file d'évènements est vide), nous devons gérer manuellement le rafraîchissement
+    du widget. Le meilleur moyen de le faire est de démarrer un timer, et le connecter à une fonction qui va rafraîchir
+    le widget à la fréquence spécifiée. La valeur par défaut de 0 fait en sorte que le timer génère un rafraîchissement
+    dès qu'il n'y a aucun autre évènement à traiter, ce qui est exactement ce qu'un évènement <em>idle</em> ferait.
+</p>
+<p>
+    Ensuite, nous devons surdéfinir l'évènement <em>show</em> : ce sera un bon endroit pour initialiser notre fenêtre
+    SFML. Nous ne pouvons pas le faire dans le constructeur, car à ce moment le widget n'a pas encore sa position et
+    sa taille définitives.<br>
+    Nous surdéfinissons également l'évènement <em>paint</em>, afin d'y rafraîchir notre vue SFML.
+</p>
+<p>
+    Nous allons aussi définir deux fonctions à l'attention des classes dérivées : <code>OnInit()</code>, qui sera
+    appelée dès que la vue SFML sera initialisée, et <code>OnUpdate()</code>, qui sera appelée avant chaque rafraîchissement
+    afin de laisser la classe dérivée dessiner des choses dans le widget.
+</p>
+<pre><code class="cpp"><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span>
+<span class="preprocessor">#include &lt;Qt/qwidget.h&gt;</span>
+<span class="preprocessor">#include &lt;Qt/qtimer.h&gt;</span>
+
+<span class="keyword">class</span> QSFMLCanvas : <span class="keyword">public</span> QWidget, <span class="keyword">public</span> sf::RenderWindow
+{
+<span class="keyword">public</span> :
+
+    QSFMLCanvas(QWidget* Parent, <span class="keyword">const</span> QPoint&amp; Position, <span class="keyword">const</span> QSize&amp; Size, <span class="keyword">unsigned</span> <span class="keyword">int</span> FrameTime = <span class="number">0</span>);
+
+    <span class="keyword">virtual</span> ~QSFMLCanvas();
+
+<span class="keyword">private</span> :
+
+    <span class="keyword">virtual</span> <span class="keyword">void</span> OnInit();
+
+    <span class="keyword">virtual</span> <span class="keyword">void</span> OnUpdate();
+
+    <span class="keyword">virtual</span> QPaintEngine* paintEngine() <span class="keyword">const</span>;
+
+    <span class="keyword">virtual</span> <span class="keyword">void</span> showEvent(QShowEvent*);
+
+    <span class="keyword">virtual</span> <span class="keyword">void</span> paintEvent(QPaintEvent*);
+
+    QTimer myTimer;
+    <span class="keyword">bool</span>   myInitialized;
+};
+</code></pre>
+<p>
+    Jetons maintenant un oeil à l'implémentation.
+</p>
+<pre><code class="cpp">QSFMLCanvas::QSFMLCanvas(QWidget* Parent, <span class="keyword">const</span> QPoint&amp; Position, <span class="keyword">const</span> QSize&amp; Size, <span class="keyword">unsigned</span> <span class="keyword">int</span> FrameTime) :
+QWidget       (Parent),
+myInitialized (<span class="keyword">false</span>)
+{
+    <span class="comment">// Mise en place de quelques options pour autoriser le rendu direct dans le widget</span>
+    setAttribute(Qt::WA_PaintOnScreen);
+    setAttribute(Qt::WA_OpaquePaintEvent);
+    setAttribute(Qt::WA_NoSystemBackground);
+
+    <span class="comment">// Changement de la police de focus, pour autoriser notre widget à capter les évènements clavier</span>
+    setFocusPolicy(Qt::StrongFocus);
+
+    <span class="comment">// Définition de la position et de la taille du widget</span>
+    move(Position);
+    resize(Size);
+
+    <span class="comment">// Préparation du timer</span>
+    myTimer.setInterval(FrameTime);
+}
+</code></pre>
+<p>
+    Pour commencer, le constructeur initialise deux options pour autoriser l'affichage direct dans le widget.
+    <code>WA_PaintOnScreen</code> informe Qt que nous n'utiliserons pas ses fonctions de dessin, et que nous
+    dessinerons directement dans le widget. <code>WA_NoSystemBackground</code> empêche l'affichage du fond du widget,
+    qui causerait un scintillement désagréable et inutile.<br>
+    On change également la police de focus à <code>Qt::StrongFocus</code>, afin d'autoriser notre widget à recevoir
+    les évènements clavier.<br>
+    Puis, on initialise la position et la taille du widget, et on paramètre l'intervalle du timer pour coller à
+    la fréquence de rafraîchissement désirée.
+</p>
+<pre><code class="cpp"><span class="preprocessor">#ifdef Q_WS_X11</span>
+    <span class="preprocessor">#include &lt;Qt/qx11info_x11.h&gt;</span>
+    <span class="preprocessor">#include &lt;X11/Xlib.h&gt;</span>
+<span class="preprocessor">#endif</span>
+
+<span class="keyword">void</span> QSFMLCanvas::showEvent(QShowEvent*)
+{
+    <span class="keyword">if</span> (!myInitialized)
+    {
+        <span class="comment">// Sous X11, il faut valider les commandes qui ont été envoyées au serveur</span>
+        <span class="comment">// afin de s'assurer que SFML aura une vision à jour de la fenêtre</span>
+        <span class="preprocessor">#ifdef Q_WS_X11</span>
+            XFlush(QX11Info::display());
+        <span class="preprocessor">#endif</span>
+
+        <span class="comment">// On crée la fenêtre SFML avec l'identificateur du widget</span>
+        Create(winId());
+
+        <span class="comment">// On laisse la classe dérivée s'initialiser si besoin</span>
+        OnInit();
+
+        <span class="comment">// On paramètre le timer de sorte qu'il génère un rafraîchissement à la fréquence souhaitée</span>
+        connect(&amp;myTimer, SIGNAL(timeout()), <span class="keyword">this</span>, SLOT(repaint()));
+        myTimer.start();
+
+        myInitialized = <span class="keyword">true</span>;
+    }
+}
+</code></pre>
+<p>
+    Dans la fonction <code>showEvent</code>, qui est appelée lorsque le widget est affiché, nous créons la fenêtre SFML.
+    Ceci se fait très simplement en appelant la fonction <code>Create</code> avec l'identificateur interne de la
+    fenêtre, qui est donné par la fonction <code>winId</code>. Sous X11 (Unix), nous devons placer un appel système pour
+    vider la file de messages qui seraient encore en attente, afin de s'assurer que la SFML va bien voir
+    notre fenêtre.<br>
+    Une fois la fenêtre SFML initialisée, nous pouvons informer la classe dérivée en appelant la fonction virtuelle
+    <code>OnInit</code>.<br>
+    Enfin, on connecte le timer à la fonction <code>repaint</code>, qui va rafraîchir le widget et générer un évènement
+    <em>paint</em>. Et bien entendu, on le démarre.
+</p>
+<pre><code class="cpp">QPaintEngine* QSFMLCanvas::paintEngine() <span class="keyword">const</span>
+{
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<p>
+    Nous faisons en sorte que la fonction <code>paintEngine</code> renvoie un moteur de rendu nul.
+    Cette fonction va de paire avec l'option <code>WA_PaintOnScreen</code>, pour dire à Qt que nous n'utilisons aucun
+    de ses moteurs de rendu.
+</p>
+<pre><code class="cpp"><span class="keyword">void</span> QSFMLCanvas::paintEvent(QPaintEvent*)
+{
+    <span class="comment">// On laisse la classe dérivée faire sa tambouille</span>
+    OnUpdate();
+
+    <span class="comment">// On rafraîchit le widget</span>
+    Display();
+}
+</code></pre>
+<p>
+    La fonction <code>paintEvent</code> est assez simple : on notifie la classe dérivée qu'un rafraîchissement est
+    sur le point d'être effectué, et on appelle <code>Display</code> pour mettre à jour notre widget avec la frame
+    rendue.
+</p>
+
+<h2 id="utilisation-de-notre-widget-qt-sfml"><a class="h2-link" href="#utilisation-de-notre-widget-qt-sfml">Utilisation de notre widget Qt-SFML</a><a class="back-to-top" href="#top" title="Haut de la page"></a></h2><p>
+    Le <code>QSFMLCanvas</code> que nous venons d'écrire n'est pas utilisable directement, il doit être dérivé.
+    Créons donc un widget dérivé qui va dessiner quelque chose de sympa :
+</p>
+<pre><code class="cpp"><span class="keyword">class</span> MyCanvas : <span class="keyword">public</span> QSFMLCanvas
+{
+<span class="keyword">public</span> :
+
+    MyCanvas(QWidget* Parent, <span class="keyword">const</span> QPoint&amp; Position, <span class="keyword">const</span> QSize&amp; Size) :
+    QSFMLCanvas(Parent, Position, Size)
+    {
+
+    }
+
+<span class="keyword">private</span> :
+
+    <span class="keyword">void</span> OnInit()
+    {
+        <span class="comment">// On charge une image</span>
+        myImage.LoadFromFile(<span class="string">"datas/qt/sfml.png"</span>);
+
+        <span class="comment">// On paramètre le sprite</span>
+        mySprite.SetImage(myImage);
+        mySprite.SetCenter(mySprite.GetSize() / <span class="number">2.f</span>);
+    }
+
+    <span class="keyword">void</span> OnUpdate()
+    {
+        <span class="comment">// On efface l'écran</span>
+        Clear(sf::Color(<span class="number">0</span>, <span class="number">128</span>, <span class="number">0</span>));
+
+        <span class="comment">// Une petite rotation du sprite</span>
+        mySprite.Rotate(GetFrameTime() * <span class="number">100.f</span>);
+
+        <span class="comment">// Et on l'affiche</span>
+        Draw(mySprite);
+    }
+
+    sf::Image  myImage;
+    sf::Sprite mySprite;
+};
+</code></pre>
+<p>
+    Rien de très compliqué ici : on surdéfinit <code>OnInit</code> pour charger et initialiser nos ressources
+    graphiques, et <code>OnUpdate</code> pour les afficher.
+</p>
+<p>
+    Nous pouvons maintenant créer une fenêtre Qt classique, et y placer une instance de notre widget perso :
+</p>
+<pre><code class="cpp"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)
+{
+    QApplication App(argc, argv);
+
+    <span class="comment">// On crée la fenêtre principale</span>
+    QFrame* MainFrame = <span class="keyword">new</span> QFrame;
+    MainFrame-&gt;setWindowTitle(<span class="string">"Qt SFML"</span>);
+    MainFrame-&gt;resize(<span class="number">400</span>, <span class="number">400</span>);
+    MainFrame-&gt;show();
+
+    <span class="comment">//On crée une vue SFML dans la fenêtre principale</span>
+    MyCanvas* SFMLView = <span class="keyword">new</span> MyCanvas(MainFrame, QPoint(<span class="number">20</span>, <span class="number">20</span>), QSize(<span class="number">360</span>, <span class="number">360</span>));
+    SFMLView-&gt;show();
+
+    <span class="keyword">return</span> App.exec();
+}
+</code></pre>
+
+<h2 id="conclusion"><a class="h2-link" href="#conclusion">Conclusion</a><a class="back-to-top" href="#top" title="Haut de la page"></a></h2><p>
+    L'intégration de la SFML dans une interface Qt est simplifiée avec le widget personnalisé que nous venons d'écrire,
+    n'hésitez pas à l'utiliser et à l'améliorer.<br>
+    Si vous voulez voir comment la SFML s'intègre à une
+    <a class="internal" href="https://www.sfml-dev.org/tutorials/1.6/graphics-wxwidgets-fr.php" title="Aller au tutoriel suivant">interface wxWidgets</a>,
+    vous pouvez vous rendre au prochain tutoriel.
+</p>
+
+            </div>
+        </div>
+        <div id="footer-container">
+            <div id="footer">
+                Les bibliothèques et le code source de SFML sont distribués sous <a href="http://www.sfml-dev.org/license-fr.php">licence zlib/png</a>.<br>
+                Copyright © <a href="mailto:laurent@sfml-dev.org" title="Contacter l'auteur">Laurent Gomila</a>
+            </div>
+        </div>
+        <script type="text/javascript">var _paq = _paq || [];_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);(function() {var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.sfml-dev.org/piwik/";_paq.push(['setTrackerUrl', u+'piwik.php']);_paq.push(['setSiteId', 1]);var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);})();</script>
+        <noscript><p><img src="http://www.sfml-dev.org/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+    
+
+</body></html>

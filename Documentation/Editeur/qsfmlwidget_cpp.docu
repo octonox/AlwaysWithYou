@@ -1,0 +1,17 @@
+Fichier implémentant les méthodes de la classe QSFMLWidget
+Méthodes:
+	QSFMLWidget(QWidget* parent): (constructeur)
+		 expliqué dans le fichier qtinsfml.html
+	
+	showEvent(QShowEvent* event):
+		Précise que le parametre event est inutilisé, ensuite si c'est la première fois que cette fonction est appelé: 
+			Si on est sous X11, on envoie une commande au serveur X11 pour s'assurer que SFML aie une vision à jour de la fenetre, Ensuite on crée une fenetre SFML (qui sera notre canvas),
+			on appelle la fonction d'initialisation du canvas, et on démarre le timer de rafraichissement. On met la variable d'initialisation de la fenetre a true
+			pour s'assurer que ce code ne sera pas appellé une deuxième fois.
+
+	paintEngine():
+		Précise à Qt que l'on utilisera aucun de ses moteurs graphiques.
+
+	paintEvent(QPaintEvent* event):
+		Précise que le parametre event est inutilisé, raffraichit le canvas, appelle la fonction du canvas dérivé qui contient le code a executé a chaque 
+		raffraichissement, et affiche le canvas.
