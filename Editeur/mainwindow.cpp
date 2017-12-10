@@ -69,7 +69,6 @@ void MainWindow::setCurrentTileset()
     QListWidget listname;
     QLabel label("Liste des tilesets: ");
     QPushButton yeah("Ok");
-    QPushButton ann("Annuler");
 
     for(auto const& p: tilesets)
         listname.addItem(QString(p.first.c_str()));
@@ -77,9 +76,9 @@ void MainWindow::setCurrentTileset()
     layout.addWidget(&label);
     layout.addWidget(&listname);
     layout.addWidget(&yeah);
-    layout.addWidget(&ann);
     dialog.setLayout(&layout);
     connect(&yeah, &QPushButton::clicked, &dialog, &QDialog::close);
-    connect(&ann, &QPushButton::clicked, &dialog, &QDialog::close);
     dialog.exec();
+
+    current_tileset = listname.currentItem()->text();
 }

@@ -7,6 +7,7 @@
 #include <QInputDialog>
 #include <QListWidget>
 #include <QPushButton>
+#include <QString>
 #include <map>
 #include "sfmlcanvas.h"
 
@@ -31,6 +32,7 @@ private:
     Ui::MainWindow *ui;
     QVBoxLayout* m_lcanvas;
     SfmlCanvas* m_canvas;
+    QString current_tileset;
 };
 
 #endif // MAINWINDOW_H
