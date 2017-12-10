@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QListWidget>
+#include <QPushButton>
 #include <map>
 #include "sfmlcanvas.h"
 

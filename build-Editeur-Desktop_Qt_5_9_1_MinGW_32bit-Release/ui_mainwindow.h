@@ -47,6 +47,7 @@ public:
     QMenu *menuFichier;
     QMenu *menuEdition;
     QMenu *menuVoir;
+    QMenu *menuQuitter;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
     QDockWidget *m_properties;
@@ -105,6 +106,8 @@ public:
         menuEdition->setObjectName(QStringLiteral("menuEdition"));
         menuVoir = new QMenu(menuBar);
         menuVoir->setObjectName(QStringLiteral("menuVoir"));
+        menuQuitter = new QMenu(menuBar);
+        menuQuitter->setObjectName(QStringLiteral("menuQuitter"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -123,6 +126,7 @@ public:
         menuBar->addAction(menuFichier->menuAction());
         menuBar->addAction(menuEdition->menuAction());
         menuBar->addAction(menuVoir->menuAction());
+        menuBar->addAction(menuQuitter->menuAction());
         menuFichier->addAction(actionAjouter_un_tileset);
         menuFichier->addAction(actionAjouter_une_musique);
         menuFichier->addSeparator();
@@ -166,6 +170,7 @@ public:
         menuFichier->setTitle(QApplication::translate("MainWindow", "Fichier", Q_NULLPTR));
         menuEdition->setTitle(QApplication::translate("MainWindow", "Edition", Q_NULLPTR));
         menuVoir->setTitle(QApplication::translate("MainWindow", "Voir", Q_NULLPTR));
+        menuQuitter->setTitle(QApplication::translate("MainWindow", "Quitter", Q_NULLPTR));
     } // retranslateUi
 
 };
