@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAjouter_une_musique, &QAction::triggered, this, &MainWindow::addMusic); //This connect the action "add a music" to a slots who do that
     connect(ui->actionAjouter_un_tileset, &QAction::triggered, this, &MainWindow::addTileset); //This connect the action "add a tileset" to a slots who do that
     connect(ui->actionChanger_le_tileset_actuel, &QAction::triggered, this, &MainWindow::setCurrentTileset);
+    connect(ui->actionChanger_la_musique_actuelle, &QAction::triggered, this, &MainWindow::setCurrentMusic);
+    connect(ui->actionMusiques, &QAction::triggered, this, &MainWindow::seeMusics);
 }
 
 MainWindow::~MainWindow()
@@ -81,4 +83,45 @@ void MainWindow::setCurrentTileset()
     dialog.exec();
 
     current_tileset = listname.currentItem()->text();
+}
+
+void MainWindow::setCurrentMusic()
+{
+    auto musics { m_canvas->getMusic() };
+
+    QDialog dialog(this);
+    QVBoxLayout layout;
+    QListWidget listname;
+    QLabel label("Liste des musiques: ");
+    QPushButton yeah("Ok");
+
+    for(auto const& p: musics)
+        listname.addItem(QString(p.first.c_str()));
+
+    layout.addWidget(&label);
+    layout.addWidget(&listname);
+    layout.addWidget(&yeah);
+    dialog.setLayout(&layout);
+    connect(&yeah, &QPushButton::clicked, &dialog, &QDialog::close);
+    dialog.exec();
+
+    current_music = listname.currentItem()->text();
+}
+
+void MainWindow::seeMusics()
+{
+    auto musics { m_canvas->getMusic() };
+
+    QWidget* window = new QWidget;
+    QVBoxLayout layout;
+    QLabel label("Musiques: ");
+    layout.addWidget(&label);
+    for(auto const& p: musics)
+    {
+        QLabel lab(QString(p.first.c_str()));
+        layout.addWidget(&lab);
+    }
+
+    window->setLayout(&layout);
+    window->show();
 }

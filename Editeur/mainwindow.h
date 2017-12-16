@@ -27,12 +27,16 @@ protected slots:
     void addMusic(); //Add a music file to the list
     void addTileset(); //Add a tileset file to the list
     void setCurrentTileset(); //Set the current tileset selected
+    void setCurrentMusic(); //Set the current music selected
+    void seeMusics();
 
 private:
     Ui::MainWindow *ui;
     QVBoxLayout* m_lcanvas;
     SfmlCanvas* m_canvas;
+
     QString current_tileset;
+    QString current_music;
 };
 
 #endif // MAINWINDOW_H

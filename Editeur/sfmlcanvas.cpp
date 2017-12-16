@@ -47,3 +47,8 @@ std::map<std::string, std::string> SfmlCanvas::getTilesets()
 {
     return m_tilesets;
 }
+
+std::map<std::string, std::string> SfmlCanvas::getMusic()
+{
+    return m_music;
+}

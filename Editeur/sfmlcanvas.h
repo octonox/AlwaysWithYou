@@ -14,6 +14,7 @@ public:
 
     void setCurrentTexture(sf::Texture& newText);
     std::map<std::string, std::string> getTilesets();
+    std::map<std::string, std::string> getMusic();
 
 private:
     void OnInit() override;
