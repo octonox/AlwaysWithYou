@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionQuitter, &QAction::triggered, this, &QMainWindow::close); //We use the Qt 5 syntax to connect signals and slots
     connect(ui->menuQuitter, &QMenu::aboutToShow, this, &QMainWindow::close);
+    connect(ui->menuQuitter, &QMenu::aboutToHide, this, &QMainWindow::close);
     connect(ui->actionAjouter_une_musique, &QAction::triggered, this, &MainWindow::addMusic); //This connect the action "add a music" to a slots who do that
     connect(ui->actionAjouter_un_tileset, &QAction::triggered, this, &MainWindow::addTileset); //This connect the action "add a tileset" to a slots who do that
     connect(ui->actionChanger_le_tileset_actuel, &QAction::triggered, this, &MainWindow::setCurrentTileset);
@@ -79,10 +80,8 @@ void MainWindow::setCurrentTileset()
     layout.addWidget(&listname);
     layout.addWidget(&yeah);
     dialog.setLayout(&layout);
-    connect(&yeah, &QPushButton::clicked, &dialog, &QDialog::close);
+    connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){current_tileset = listname.currentItem()->text();dialog.close();});
     dialog.exec();
-
-    current_tileset = listname.currentItem()->text();
 }
 
 void MainWindow::setCurrentMusic()
@@ -102,10 +101,8 @@ void MainWindow::setCurrentMusic()
     layout.addWidget(&listname);
     layout.addWidget(&yeah);
     dialog.setLayout(&layout);
-    connect(&yeah, &QPushButton::clicked, &dialog, &QDialog::close);
+    connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){current_music = listname.currentItem()->text();dialog.close();});
     dialog.exec();
-
-    current_music = listname.currentItem()->text();
 }
 
 void MainWindow::seeMusics()

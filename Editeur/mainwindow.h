@@ -28,7 +28,7 @@ protected slots:
     void addTileset(); //Add a tileset file to the list
     void setCurrentTileset(); //Set the current tileset selected
     void setCurrentMusic(); //Set the current music selected
-    void seeMusics();
+    void seeMusics(); //Open a window to see the musics loaded
 
 private:
     Ui::MainWindow *ui;
