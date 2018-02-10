@@ -13,8 +13,8 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DUNICODE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -pipe -O2 -Wextra -Wall -W $(DEFINES)
-CXXFLAGS      = -fno-keep-inline-dllexport -pipe -O2 -std=gnu++11 -Wextra -Wall -W -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\Editeur -I. -I..\..\SFML-2.4.2_ForQt\include -I..\..\Qt\5.9.1\mingw53_32\include -I..\..\Qt\5.9.1\mingw53_32\include\QtWidgets -I..\..\Qt\5.9.1\mingw53_32\include\QtGui -I..\..\Qt\5.9.1\mingw53_32\include\QtANGLE -I..\..\Qt\5.9.1\mingw53_32\include\QtCore -Irelease -I. -I..\..\Qt\5.9.1\mingw53_32\mkspecs\win32-g++ 
+CXXFLAGS      = -fno-keep-inline-dllexport -pipe -O2 -std=gnu++1y -Wextra -Wall -W -fexceptions -mthreads $(DEFINES)
+INCPATH       = -I..\Editeur -I. -I..\SFML-2.4.2_ForQt\include -I..\..\Qt\5.9.1\mingw53_32\include -I..\..\Qt\5.9.1\mingw53_32\include\QtWidgets -I..\..\Qt\5.9.1\mingw53_32\include\QtGui -I..\..\Qt\5.9.1\mingw53_32\include\QtANGLE -I..\..\Qt\5.9.1\mingw53_32\include\QtCore -Irelease -I. -I..\..\Qt\5.9.1\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
 LIBS        =        -lmingw32 -LC:\Qt\5.9.1\mingw53_32\lib C:\Qt\5.9.1\mingw53_32\lib\libqtmain.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 -LC:\SFML-2.4.2_ForQt\lib -lsfml-audio -lsfml-graphics -lsfml-main -lsfml-network -lsfml-window -lsfml-system C:\Qt\5.9.1\mingw53_32\lib\libQt5Widgets.a C:\Qt\5.9.1\mingw53_32\lib\libQt5Gui.a C:\Qt\5.9.1\mingw53_32\lib\libQt5Core.a 
@@ -112,7 +112,7 @@ compiler_moc_predefs_make_all: release/moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) release\moc_predefs.h
 release/moc_predefs.h: ../../Qt/5.9.1/mingw53_32/mkspecs/features/data/dummy.cpp
-	g++ -fno-keep-inline-dllexport -pipe -O2 -std=gnu++11 -Wextra -Wall -W -dM -E -o release\moc_predefs.h ..\..\Qt\5.9.1\mingw53_32\mkspecs\features\data\dummy.cpp
+	g++ -fno-keep-inline-dllexport -pipe -O2 -std=gnu++1y -Wextra -Wall -W -dM -E -o release\moc_predefs.h ..\..\Qt\5.9.1\mingw53_32\mkspecs\features\data\dummy.cpp
 
 compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_qsfmlwidget.cpp
 compiler_moc_header_clean:
@@ -225,49 +225,49 @@ release/moc_mainwindow.cpp: ../../Qt/5.9.1/mingw53_32/include/QtWidgets/QMainWin
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlayout.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/InputSoundFile.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Listener.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Music.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundSource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/AlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/OutputSoundFile.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Sound.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBuffer.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBufferRecorder.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundRecorder.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileReader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileWriter.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/InputSoundFile.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Listener.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Music.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundSource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/AlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/OutputSoundFile.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Sound.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBuffer.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBufferRecorder.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundRecorder.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileReader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileWriter.hpp \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QFileDialog \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qfiledialog.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qdir.h \
@@ -281,6 +281,27 @@ release/moc_mainwindow.cpp: ../../Qt/5.9.1/mingw53_32/include/QtWidgets/QMainWin
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtextformat.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qpen.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtextoption.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QListWidget \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlistwidget.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlistview.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyleoption.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		../../Qt/5.9.1/mingw53_32/include/QtGui/qvalidator.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qregularexpression.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qslider.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractslider.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyle.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qtabbar.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qrubberband.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QPushButton \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qpushbutton.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/QString \
 		../Editeur/sfmlcanvas.h \
 		../Editeur/qsfmlwidget.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/QObject \
@@ -288,58 +309,58 @@ release/moc_mainwindow.cpp: ../../Qt/5.9.1/mingw53_32/include/QtWidgets/QMainWin
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qtimer.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
 		../Editeur/gamemap.h \
 		../Editeur/mainwindow.h \
 		release/moc_predefs.h \
 		../../Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -IC:/AlwaysWithYou/Editeur -IC:/SFML-2.4.2_ForQt/include -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Editeur\mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -IC:/AlwaysWithYou/Editeur -IC:/AlwaysWithYou/SFML-2.4.2_ForQt/include -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Editeur\mainwindow.h -o release\moc_mainwindow.cpp
 
 release/moc_qsfmlwidget.cpp: ../../Qt/5.9.1/mingw53_32/include/QtCore/QObject \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qobject.h \
@@ -445,83 +466,83 @@ release/moc_qsfmlwidget.cpp: ../../Qt/5.9.1/mingw53_32/include/QtCore/QObject \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qvector2d.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
 		../Editeur/qsfmlwidget.h \
 		release/moc_predefs.h \
 		../../Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -IC:/AlwaysWithYou/Editeur -IC:/SFML-2.4.2_ForQt/include -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Editeur\qsfmlwidget.h -o release\moc_qsfmlwidget.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -IC:/AlwaysWithYou/Editeur -IC:/AlwaysWithYou/SFML-2.4.2_ForQt/include -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\Editeur\qsfmlwidget.h -o release\moc_qsfmlwidget.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -653,49 +674,49 @@ release/main.o: ../Editeur/main.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlayout.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/InputSoundFile.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Listener.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Music.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundSource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/AlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/OutputSoundFile.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Sound.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBuffer.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBufferRecorder.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundRecorder.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileReader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileWriter.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/InputSoundFile.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Listener.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Music.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundSource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/AlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/OutputSoundFile.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Sound.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBuffer.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBufferRecorder.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundRecorder.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileReader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileWriter.hpp \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QFileDialog \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qfiledialog.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qdir.h \
@@ -709,6 +730,27 @@ release/main.o: ../Editeur/main.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtextformat.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qpen.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtextoption.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QListWidget \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlistwidget.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlistview.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyleoption.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		../../Qt/5.9.1/mingw53_32/include/QtGui/qvalidator.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qregularexpression.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qslider.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractslider.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyle.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qtabbar.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qrubberband.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QPushButton \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qpushbutton.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/QString \
 		../Editeur/sfmlcanvas.h \
 		../Editeur/qsfmlwidget.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/QObject \
@@ -716,53 +758,53 @@ release/main.o: ../Editeur/main.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qtimer.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
 		../Editeur/gamemap.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QApplication \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qapplication.h \
@@ -882,49 +924,49 @@ release/mainwindow.o: ../Editeur/mainwindow.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlayout.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/InputSoundFile.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Listener.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Music.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundSource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/AlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/OutputSoundFile.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/Sound.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBuffer.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBufferRecorder.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundRecorder.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileReader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileWriter.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/InputSoundFile.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Listener.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Music.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundSource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/AlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/OutputSoundFile.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/Sound.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBuffer.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundBufferRecorder.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundRecorder.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileFactory.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileReader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Audio/SoundFileWriter.hpp \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QFileDialog \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qfiledialog.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qdir.h \
@@ -938,6 +980,27 @@ release/mainwindow.o: ../Editeur/mainwindow.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtextformat.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qpen.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtextoption.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QListWidget \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlistwidget.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlistview.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyleoption.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		../../Qt/5.9.1/mingw53_32/include/QtGui/qvalidator.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/qregularexpression.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qslider.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractslider.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyle.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qtabbar.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qrubberband.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QPushButton \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qpushbutton.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.9.1/mingw53_32/include/QtCore/QString \
 		../Editeur/sfmlcanvas.h \
 		../Editeur/qsfmlwidget.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/QObject \
@@ -945,53 +1008,53 @@ release/mainwindow.o: ../Editeur/mainwindow.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qtimer.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
 		../Editeur/gamemap.h \
 		ui_mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/QVariant \
@@ -1011,20 +1074,6 @@ release/mainwindow.o: ../Editeur/mainwindow.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qdockwidget.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QHeaderView \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qheaderview.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/5.9.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		../../Qt/5.9.1/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyleoption.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		../../Qt/5.9.1/mingw53_32/include/QtGui/qvalidator.h \
-		../../Qt/5.9.1/mingw53_32/include/QtCore/qregularexpression.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qslider.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qabstractslider.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstyle.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qtabbar.h \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qrubberband.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QMenu \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qmenu.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QMenuBar \
@@ -1032,7 +1081,9 @@ release/mainwindow.o: ../Editeur/mainwindow.cpp ../Editeur/mainwindow.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QStatusBar \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qstatusbar.h \
 		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QToolBar \
-		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qtoolbar.h
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qtoolbar.h \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/QLabel \
+		../../Qt/5.9.1/mingw53_32/include/QtWidgets/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Editeur\mainwindow.cpp
 
 release/qsfmlwidget.o: ../Editeur/qsfmlwidget.cpp ../Editeur/qsfmlwidget.h \
@@ -1140,79 +1191,79 @@ release/qsfmlwidget.o: ../Editeur/qsfmlwidget.cpp ../Editeur/qsfmlwidget.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qvector2d.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qsfmlwidget.o ..\Editeur\qsfmlwidget.cpp
 
 release/sfmlcanvas.o: ../Editeur/sfmlcanvas.cpp ../Editeur/sfmlcanvas.h \
@@ -1321,156 +1372,156 @@ release/sfmlcanvas.o: ../Editeur/sfmlcanvas.cpp ../Editeur/sfmlcanvas.h \
 		../../Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qvector2d.h \
 		../../Qt/5.9.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp \
 		../Editeur/gamemap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\sfmlcanvas.o ..\Editeur\sfmlcanvas.cpp
 
 release/gamemap.o: ../Editeur/gamemap.cpp ../Editeur/gamemap.h \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
-		../../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp
+		../SFML-2.4.2_ForQt/include/SFML/Graphics.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Config.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Clock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Time.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Err.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/FileInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/InputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/NonCopyable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Lock.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/MemoryInputStream.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Mutex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Sleep.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Utf.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/String.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Thread.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocal.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/ThreadLocalPtr.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector2.inl \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/System/Vector3.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Clipboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Context.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/GlResource.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/ContextSettings.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Cursor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Event.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Joystick.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Keyboard.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Mouse.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Sensor.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Touch.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/VideoMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/Window.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowHandle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Window/WindowStyle.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/BlendMode.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Export.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/CircleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Drawable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderStates.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transform.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Rect.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Transformable.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/VertexArray.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Vertex.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Color.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/PrimitiveType.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/ConvexShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Font.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glyph.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Texture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Image.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RectangleShape.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTarget.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/View.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderTexture.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/RenderWindow.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Shader.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Glsl.inl \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Sprite.hpp \
+		../SFML-2.4.2_ForQt/include/SFML/Graphics/Text.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\gamemap.o ..\Editeur\gamemap.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

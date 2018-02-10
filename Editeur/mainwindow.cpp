@@ -32,19 +32,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    delete m_canvas;
-    delete m_lcanvas;
     delete ui;
 }
 
 void MainWindow::addMusic()
 {
 
-    QString way = QFileDialog::getOpenFileName(this, "Choisir une musique", QString(), "Musiques (*.ogg *.wav)"); //We get the way to access to the file
+    QString way = QFileDialog::getOpenFileName(this, tr("Choisir une musique"), QString(), tr("Musiques (*.ogg *.wav)")); //We get the way to access to the file
     if(way != "") //Way have to don't be empty
     {
         bool ok {false};
-        QString title { QInputDialog::getText(this, "Nom de la musique", "Comment s'appelle cette musique (à " + way + ")", QLineEdit::Normal, QString(), &ok) }; //We get the title of the music (after it will be easier to see the musics)
+        QString title { QInputDialog::getText(this, tr("Nom de la musique"), tr("Comment s'appelle cette musique (à ") + way + ")", QLineEdit::Normal, QString(), &ok) }; //We get the title of the music (after it will be easier to see the musics)
         if(ok && title != "") //We verif the user touch the OK button and the title isn't empty
             m_canvas->addMusic(title.toStdString(), way.toStdString());
     }
@@ -53,11 +51,11 @@ void MainWindow::addMusic()
 void MainWindow::addTileset()
 {
     //This is the same function than "addMusic" but for tileset
-    QString way = QFileDialog::getOpenFileName(this, "Choisir un tileset", QString(), "Images (*.bmp *.png *.jpg *.jpeg)");
+    QString way = QFileDialog::getOpenFileName(this, tr("Choisir un tileset"), QString(), tr("Images (*.bmp *.png *.jpg *.jpeg)"));
     if(way != "")
     {
         bool ok {false};
-        QString title { QInputDialog::getText(this, "Nom du tileset", "Comment s'appelle ce tileset (à " + way + ")", QLineEdit::Normal, QString(), &ok) };
+        QString title { QInputDialog::getText(this, tr("Nom du tileset"), tr("Comment s'appelle ce tileset (à ") + way + ")", QLineEdit::Normal, QString(), &ok) };
         if(ok && title != "")
             m_canvas->addTileset(title.toStdString(), way.toStdString());
     }
@@ -70,7 +68,7 @@ void MainWindow::setCurrentTileset()
     QDialog dialog(this);
     QVBoxLayout layout;
     QListWidget listname;
-    QLabel label("Liste des tilesets: ");
+    QLabel label(tr("Liste des tilesets: "));
     QPushButton yeah("Ok");
 
     for(auto const& p: tilesets)
@@ -94,7 +92,7 @@ void MainWindow::setCurrentMusic()
     QDialog dialog(this);
     QVBoxLayout layout;
     QListWidget listname;
-    QLabel label("Liste des musiques: ");
+    QLabel label(tr("Liste des musiques: "));
     QPushButton yeah("Ok");
 
     for(auto const& p: musics)
@@ -114,7 +112,7 @@ void MainWindow::seeMusics()
 
     QWidget* window = new QWidget;
     QVBoxLayout layout;
-    QLabel label("Musiques: ");
+    QLabel label(tr("Musiques: "));
     layout.addWidget(&label);
     for(auto const& p: musics)
     {

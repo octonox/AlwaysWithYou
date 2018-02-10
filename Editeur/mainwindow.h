@@ -32,8 +32,8 @@ protected slots:
 
 private:
     Ui::MainWindow *ui;
-    QVBoxLayout* m_lcanvas;
-    SfmlCanvas* m_canvas;
+    QVBoxLayout* m_lcanvas; //The layout who contain the canvas
+    SfmlCanvas* m_canvas; //The canvas
 
     QString current_tileset;
     QString current_music;

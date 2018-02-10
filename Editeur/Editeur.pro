@@ -17,6 +17,8 @@ TEMPLATE = app
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
+CONFIG += c++14
+
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
@@ -45,7 +47,7 @@ win32:CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfm
 win32:CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-main-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
 unix:!macx: LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
-win32:INCLUDEPATH += C:\SFML-2.4.2_ForQt\include
-win32:DEPENDPATH += C:\SFML-2.4.2_ForQt\include
+win32:INCLUDEPATH += ..\SFML-2.4.2_ForQt\include
+win32:DEPENDPATH += ..\SFML-2.4.2_ForQt\include
 unix:!macx:INCLUDEPATH += ~/SFML-2.4.2/include
 unix:!macx:DEPENDPATH += ~/SFML-2.4.2/include
