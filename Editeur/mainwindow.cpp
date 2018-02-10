@@ -80,7 +80,10 @@ void MainWindow::setCurrentTileset()
     layout.addWidget(&listname);
     layout.addWidget(&yeah);
     dialog.setLayout(&layout);
-    connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){current_tileset = listname.currentItem()->text();dialog.close();});
+    connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){
+        current_tileset = listname.currentItem()->text();
+        dialog.close();
+    });
     dialog.exec();
 }
 
@@ -121,4 +124,6 @@ void MainWindow::seeMusics()
 
     window->setLayout(&layout);
     window->show();
+
+    delete window;
 }
