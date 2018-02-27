@@ -42,16 +42,16 @@ public:
     QAction *actionSelectionner_un_tile;
     QAction *actionAjouter_une_collision;
     QAction *actionMusiques;
+    QAction *actionQuitter_2;
     QWidget *centralWidget;
-    QMenuBar *menuBar;
-    QMenu *menuFichier;
-    QMenu *menuEdition;
-    QMenu *menuVoir;
-    QMenu *menuQuitter;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
     QDockWidget *m_properties;
     QWidget *dockWidgetContents;
+    QMenuBar *menuBar;
+    QMenu *menuFichier;
+    QMenu *menuEdition;
+    QMenu *menuQuitter;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -94,21 +94,11 @@ public:
         actionAjouter_une_collision->setObjectName(QStringLiteral("actionAjouter_une_collision"));
         actionMusiques = new QAction(MainWindow);
         actionMusiques->setObjectName(QStringLiteral("actionMusiques"));
+        actionQuitter_2 = new QAction(MainWindow);
+        actionQuitter_2->setObjectName(QStringLiteral("actionQuitter_2"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 419, 21));
-        menuFichier = new QMenu(menuBar);
-        menuFichier->setObjectName(QStringLiteral("menuFichier"));
-        menuEdition = new QMenu(menuBar);
-        menuEdition->setObjectName(QStringLiteral("menuEdition"));
-        menuVoir = new QMenu(menuBar);
-        menuVoir->setObjectName(QStringLiteral("menuVoir"));
-        menuQuitter = new QMenu(menuBar);
-        menuQuitter->setObjectName(QStringLiteral("menuQuitter"));
-        MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
@@ -122,10 +112,19 @@ public:
         dockWidgetContents->setObjectName(QStringLiteral("dockWidgetContents"));
         m_properties->setWidget(dockWidgetContents);
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(2), m_properties);
+        menuBar = new QMenuBar(MainWindow);
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 419, 21));
+        menuFichier = new QMenu(menuBar);
+        menuFichier->setObjectName(QStringLiteral("menuFichier"));
+        menuEdition = new QMenu(menuBar);
+        menuEdition->setObjectName(QStringLiteral("menuEdition"));
+        menuQuitter = new QMenu(menuBar);
+        menuQuitter->setObjectName(QStringLiteral("menuQuitter"));
+        MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuFichier->menuAction());
         menuBar->addAction(menuEdition->menuAction());
-        menuBar->addAction(menuVoir->menuAction());
         menuBar->addAction(menuQuitter->menuAction());
         menuFichier->addAction(actionAjouter_un_tileset);
         menuFichier->addAction(actionAjouter_une_musique);
@@ -142,7 +141,7 @@ public:
         menuEdition->addAction(actionSelectionner_un_tile);
         menuEdition->addSeparator();
         menuEdition->addAction(actionAjouter_une_collision);
-        menuVoir->addAction(actionMusiques);
+        menuQuitter->addAction(actionQuitter_2);
 
         retranslateUi(MainWindow);
 
@@ -167,9 +166,9 @@ public:
         actionSelectionner_un_tile->setText(QApplication::translate("MainWindow", "Selectionner un tile", Q_NULLPTR));
         actionAjouter_une_collision->setText(QApplication::translate("MainWindow", "Ajouter une collision", Q_NULLPTR));
         actionMusiques->setText(QApplication::translate("MainWindow", "Musiques", Q_NULLPTR));
+        actionQuitter_2->setText(QApplication::translate("MainWindow", "Quitter", Q_NULLPTR));
         menuFichier->setTitle(QApplication::translate("MainWindow", "Fichier", Q_NULLPTR));
         menuEdition->setTitle(QApplication::translate("MainWindow", "Edition", Q_NULLPTR));
-        menuVoir->setTitle(QApplication::translate("MainWindow", "Voir", Q_NULLPTR));
         menuQuitter->setTitle(QApplication::translate("MainWindow", "Quitter", Q_NULLPTR));
     } // retranslateUi
 

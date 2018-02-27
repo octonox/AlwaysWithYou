@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+ #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QLabel>
 
@@ -21,13 +21,11 @@ MainWindow::MainWindow(QWidget *parent) :
     //musicview.setParentWindow(this);
 
     connect(ui->actionQuitter, &QAction::triggered, this, &QMainWindow::close); //We use the Qt 5 syntax to connect signals and slots
-    connect(ui->menuQuitter, &QMenu::aboutToShow, this, &QMainWindow::close);
-    connect(ui->menuQuitter, &QMenu::aboutToHide, this, &QMainWindow::close);
+    connect(ui->actionQuitter_2, &QAction::triggered, this, &QMainWindow::close);
     connect(ui->actionAjouter_une_musique, &QAction::triggered, this, &MainWindow::addMusic); //This connect the action "add a music" to a slots who do that
     connect(ui->actionAjouter_un_tileset, &QAction::triggered, this, &MainWindow::addTileset); //This connect the action "add a tileset" to a slots who do that
     connect(ui->actionChanger_le_tileset_actuel, &QAction::triggered, this, &MainWindow::setCurrentTileset);
     connect(ui->actionChanger_la_musique_actuelle, &QAction::triggered, this, &MainWindow::setCurrentMusic);
-    connect(ui->actionMusiques, &QAction::triggered, this, &MainWindow::seeMusics);
 }
 
 MainWindow::~MainWindow()
@@ -79,7 +77,7 @@ void MainWindow::setCurrentTileset()
     layout.addWidget(&yeah);
     dialog.setLayout(&layout);
     connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){
-        current_tileset = listname.currentItem()->text();
+        current_tileset = (listname.currentItem() != nullptr)?listname.currentItem()->text() : current_tileset;
         dialog.close();
     });
     dialog.exec();
@@ -102,26 +100,9 @@ void MainWindow::setCurrentMusic()
     layout.addWidget(&listname);
     layout.addWidget(&yeah);
     dialog.setLayout(&layout);
-    connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){current_music = listname.currentItem()->text();dialog.close();});
+    connect(&yeah, &QPushButton::clicked, &dialog, [&listname, this, &dialog](){
+        current_music = (listname.currentItem() != nullptr)? listname.currentItem()->text() : current_music;
+        dialog.close();
+    });
     dialog.exec();
-}
-
-void MainWindow::seeMusics()
-{
-    auto musics { m_canvas->getMusic() };
-
-    QWidget* window = new QWidget;
-    QVBoxLayout layout;
-    QLabel label(tr("Musiques: "));
-    layout.addWidget(&label);
-    for(auto const& p: musics)
-    {
-        QLabel lab(QString(p.first.c_str()));
-        layout.addWidget(&lab);
-    }
-
-    window->setLayout(&layout);
-    window->show();
-
-    delete window;
 }

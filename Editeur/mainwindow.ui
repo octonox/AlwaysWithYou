@@ -14,6 +14,24 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="m_properties">
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -48,39 +66,15 @@
     <addaction name="separator"/>
     <addaction name="actionAjouter_une_collision"/>
    </widget>
-   <widget class="QMenu" name="menuVoir">
-    <property name="title">
-     <string>Voir</string>
-    </property>
-    <addaction name="actionMusiques"/>
-   </widget>
    <widget class="QMenu" name="menuQuitter">
     <property name="title">
      <string>Quitter</string>
     </property>
+    <addaction name="actionQuitter_2"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuEdition"/>
-   <addaction name="menuVoir"/>
    <addaction name="menuQuitter"/>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="m_properties">
-   <property name="allowedAreas">
-    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>2</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
   <action name="actionAjouter_un_tileset">
    <property name="text">
@@ -173,6 +167,11 @@
   <action name="actionMusiques">
    <property name="text">
     <string>Musiques</string>
+   </property>
+  </action>
+  <action name="actionQuitter_2">
+   <property name="text">
+    <string>Quitter</string>
    </property>
   </action>
  </widget>
