@@ -9,7 +9,7 @@ namespace game{
     class Tile
     {
     public:
-        Tile();
+        explicit Tile();
     };
 }
 
