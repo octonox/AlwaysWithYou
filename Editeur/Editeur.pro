@@ -30,17 +30,19 @@ SOURCES += \
         mainwindow.cpp \
     qsfmlwidget.cpp \
     sfmlcanvas.cpp \
-    gamemap.cpp
+    gamemap.cpp \
+    Game/tile.cpp
 
 HEADERS += \
         mainwindow.h \
     qsfmlwidget.h \
     sfmlcanvas.h \
-    gamemap.h
+    gamemap.h \
+    Game/tile.h
 
 FORMS += \
         mainwindow.ui
-win32:LIBS += -LC:/SFML-2.4.2_ForQt/lib
+win32:LIBS += -L../SFML-2.4.2_ForQt/lib
 unix:!macx:LIBS += -L~/SFML-2.4.2/lib
 
 win32:CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-main -lsfml-network -lsfml-window -lsfml-system
