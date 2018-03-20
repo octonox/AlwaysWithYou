@@ -12,4 +12,9 @@ namespace game{
         me.setTexture(&m_tileset);
         me.setTextureRect(sf::IntRect(nbtile * tile_size, 0, tile_size, tile_size));
     }
+
+    void Tile::split()
+    {
+        m_parent->draw(me);
+    }
 }

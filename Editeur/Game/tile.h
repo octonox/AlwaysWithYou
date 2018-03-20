@@ -12,6 +12,8 @@ namespace game{
     public:
         explicit Tile(sf::RenderWindow& parent, sf::Texture& tileset, int nbtile, float tile_size, sf::Vector2f& position);
 
+        void split(); //Basically just draw the tile on the map (just call sf::RenderWindow::draw()
+
     private:
         sf::Texture& m_tileset;
         int m_nbtl; //The number of tile in the tileset
