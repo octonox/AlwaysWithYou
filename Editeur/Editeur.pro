@@ -30,14 +30,12 @@ SOURCES += \
         mainwindow.cpp \
     qsfmlwidget.cpp \
     sfmlcanvas.cpp \
-    gamemap.cpp \
     Game/tile.cpp
 
 HEADERS += \
         mainwindow.h \
     qsfmlwidget.h \
     sfmlcanvas.h \
-    gamemap.h \
     Game/tile.h
 
 FORMS += \
