@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     resize(800, 600);
 
     m_canvas = new SfmlCanvas; //We create the canvas
-    m_canvas->resize(800, 600);
+    m_canvas->resize(800, 800);
 
     m_lcanvas = new QVBoxLayout(); //And the layout who contain the canvas
     m_lcanvas->addWidget(m_canvas); //We add the canvas to his layout
