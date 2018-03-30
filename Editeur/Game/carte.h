@@ -12,6 +12,7 @@ public:
 
 private:
     sf::RenderWindow* m_parent; //The window where will be split the tiles to make the map
+    std::array<std::array<sf::RectangleShape, NBTILE>, NBTILE> m_tls;
 };
 }
 
