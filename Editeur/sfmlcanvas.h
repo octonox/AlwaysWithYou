@@ -1,7 +1,6 @@
 #ifndef SFMLCANVAS_H
 #define SFMLCANVAS_H
 #include "qsfmlwidget.h"
-#include "gamemap.h"
 
 class SfmlCanvas : public QSFMLWidget
 {
@@ -20,7 +19,6 @@ private:
     void OnInit() override;
     void OnUpdate() override;
 
-    game::Map map;
     std::map<std::string, std::string> m_music; //Contain all musics used in the map
     std::map<std::string, std::string> m_tilesets; //Contain all musics used in the map
 
